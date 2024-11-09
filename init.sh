@@ -7,7 +7,8 @@ if command -v conda &> /dev/null; then
 else
     echo "Miniconda is not installed."
     curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    bash Miniconda3-latest-Linux-x86_64.sh -u -y
+    bash Miniconda3-latest-Linux-x86_64.sh -u -b
+    eval "$(/$HOME/miniconda3/bin/conda shell.bash hook)"
     source ~/.bashrc
     rm Miniconda3-latest-Linux-x86_64.sh
 fi
