@@ -8,7 +8,7 @@ else
     echo "Miniconda is not installed."
     curl -LO https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     bash Miniconda3-latest-Linux-x86_64.sh -u -b
-    eval "$(/$HOME/miniconda3/bin/conda shell.bash hook)"
+    echo "export PATH=/root/miniconda3/bin:$PATH" >> ~/.bashrc
     source ~/.bashrc
     rm Miniconda3-latest-Linux-x86_64.sh
 fi
@@ -27,7 +27,7 @@ conda activate facefusion
 
 # use cuda ane tensorrt
 conda install -y conda-forge::cuda-runtime=12.4.1 conda-forge::cudnn=9.2.1.18
-pip install tensorrt==10.5.0 --extra-index-url https://pypi.nvidia.com
+pip install tensorrt==10.5.0
 
 # install facefusion
 python install.py --onnxruntime cuda
